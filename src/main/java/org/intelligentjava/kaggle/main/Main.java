@@ -115,7 +115,7 @@ public class Main {
         //execution time measurement
         Instant finish = Instant.now();
         long timeElapsed = Duration.between(start, finish).toMillis();
-        System.out.println("Elapsed time in seconds: "+timeElapsed);
+        System.out.println("Elapsed time in miliseconds: "+timeElapsed);
         
     	long afterUsedMem=Runtime.getRuntime().totalMemory()-Runtime.getRuntime().freeMemory();
     	System.out.println("After execution: " + afterUsedMem);
@@ -123,13 +123,9 @@ public class Main {
         
     	System.out.println("Memory used: " + x/1024/1024+"Mb");
         
-    }
-    
+    }  
     private static List<Feature> getFeatures() {
     	
-        Feature eNBcellConfig0dlBandwidth25 = newFeature("eNBcellConfig0dlBandwidth", 25);
-        Feature eNBcellConfig0dlBandwidth50 = newFeature("eNBcellConfig0dlBandwidth", 50);
-        Feature eNBcellConfig0dlBandwidth100 = newFeature("eNBcellConfig0dlBandwidth", 100);
         Feature mac_stats_total_bytes_sdus_ul1 = newFeature("mac_stats_total_bytes_sdus_ul", lessThanD(676510), "less than 676510");
         Feature mac_stats_total_bytes_sdus_ul2 = newFeature("mac_stats_total_bytes_sdus_ul", betweenD(676510, 1013564), "between 676510 and 1013564");
         Feature mac_stats_total_bytes_sdus_ul3 = newFeature("mac_stats_total_bytes_sdus_ul", betweenD(1013564, 1421581), "between 1013564 and 1421581");
@@ -143,26 +139,38 @@ public class Main {
         Feature mac_stats_total_bytes_sdus_dl4 = newFeature("mac_stats_total_bytes_sdus_dl", betweenD(153149709, 438259102), "between 153149709 and 438259102");
         Feature mac_stats_total_bytes_sdus_dl5 = newFeature("mac_stats_total_bytes_sdus_dl", betweenD(438259102, 574243368), "between 438259102 and 574243368");
         Feature mac_stats_total_bytes_sdus_dl6 = newFeature("mac_stats_total_bytes_sdus_dl", betweenD(574243368, 959924893), "between 574243368 and 959924893");
+        Feature eNBcellConfig0ulPuschPower1 = newFeature("eNBcellConfig0ulPuschPower", -96);
+        Feature eNBcellConfig0ulPuschPower2 = newFeature("eNBcellConfig0ulPuschPower", -86);
+        Feature eNBcellConfig0ulPuschPower3 = newFeature("eNBcellConfig0ulPuschPower", -50);
+        Feature eNBcellConfig0dlBandwidth25 = newFeature("eNBcellConfig0dlBandwidth", 25);
+        Feature eNBcellConfig0dlBandwidth50 = newFeature("eNBcellConfig0dlBandwidth", 50);
+        Feature eNBcellConfig0dlBandwidth100 = newFeature("eNBcellConfig0dlBandwidth", 100);
+        Feature eNBcellConfig0ulBandwidth25 = newFeature("eNBcellConfig0ulBandwidth", 25);
+        Feature eNBcellConfig0ulBandwidth50 = newFeature("eNBcellConfig0ulBandwidth", 50);
+        Feature eNBcellConfig0ulBandwidth100 = newFeature("eNBcellConfig0ulBandwidth", 100);
+        Feature eNBcellConfig0dlPdschPower0 = newFeature("eNBcellConfig0dlPdschPower", 0);
+        Feature eNBcellConfig0dlPdschPower10 = newFeature("eNBcellConfig0dlPdschPower", -10);
+        Feature eNBcellConfig0dlPdschPower27 = newFeature("eNBcellConfig0dlPdschPower", -27);
+        Feature eNBcellConfig0enable64QAM0 = newFeature("eNBcellConfig0enable64QAM", 0);
+        Feature eNBcellConfig0enable64QAM1 = newFeature("eNBcellConfig0enable64QAM", 1);
+        Feature eNBcellConfig0enable64QAM2 = newFeature("eNBcellConfig0enable64QAM", 2);
         Feature eNBcellConfig0siConfigsfn1 = newFeature("eNBcellConfig0siConfigsfn", 149);
         Feature eNBcellConfig0siConfigsfn2 = newFeature("eNBcellConfig0siConfigsfn", 501);
         Feature eNBcellConfig0siConfigsfn3 = newFeature("eNBcellConfig0siConfigsfn", 549);
         Feature eNBcellConfig0siConfigsfn4 = newFeature("eNBcellConfig0siConfigsfn", 625);
-        Feature eNBcellConfig0siConfigsfn5 = newFeature("eNBcellConfig0siConfigsfn", 848);
+        Feature eNBcellConfig0siConfigsfn5 = newFeature("eNBcellConfig0siConfigsfn", 849);
         Feature eNBcellConfig0siConfigsfn6 = newFeature("eNBcellConfig0siConfigsfn", 925);
-        Feature eNBcellConfig0ulPuschPower1 = newFeature("eNBcellConfig0ulPuschPower", -96);
-        Feature eNBcellConfig0ulPuschPower2 = newFeature("eNBcellConfig0ulPuschPower", -86);
-        Feature eNBcellConfig0ulPuschPower3 = newFeature("eNBcellConfig0ulPuschPower", -50);
-        Feature eNBcellConfig0ulFreq = newFeature("eNBcellConfig0ulFreq", 2565);
-        Feature LClcUeConfig0rnti = newFeature("LClcUeConfig0rnti", 5268);
-        Feature eNBcellConfig0dlFreq = newFeature("eNBcellConfig0dlFreq", 2685);
-       
-       return Arrays.asList(eNBcellConfig0dlBandwidth25, eNBcellConfig0dlBandwidth50, eNBcellConfig0dlBandwidth100, mac_stats_total_bytes_sdus_ul1,
-    		   mac_stats_total_bytes_sdus_ul2, mac_stats_total_bytes_sdus_ul3, mac_stats_total_bytes_sdus_ul4, mac_stats_total_bytes_sdus_ul5, 
+      
+       return Arrays.asList(mac_stats_total_bytes_sdus_ul1, mac_stats_total_bytes_sdus_ul2, mac_stats_total_bytes_sdus_ul3, mac_stats_total_bytes_sdus_ul4, mac_stats_total_bytes_sdus_ul5, 
     		   mac_stats_total_bytes_sdus_ul6, mac_stats_total_bytes_sdus_ul7, mac_stats_total_bytes_sdus_dl1, mac_stats_total_bytes_sdus_dl2,
     		   mac_stats_total_bytes_sdus_dl3, mac_stats_total_bytes_sdus_dl4, mac_stats_total_bytes_sdus_dl5, mac_stats_total_bytes_sdus_dl6,
-    		   eNBcellConfig0siConfigsfn1, eNBcellConfig0siConfigsfn2, eNBcellConfig0siConfigsfn3, eNBcellConfig0siConfigsfn4, eNBcellConfig0siConfigsfn5,
-    		   eNBcellConfig0siConfigsfn6, eNBcellConfig0ulPuschPower1, eNBcellConfig0ulPuschPower2, eNBcellConfig0ulPuschPower3, 
-    		   eNBcellConfig0ulFreq, LClcUeConfig0rnti, eNBcellConfig0dlFreq);
+    		   eNBcellConfig0ulPuschPower1, eNBcellConfig0ulPuschPower2, eNBcellConfig0ulPuschPower3, 
+    		   eNBcellConfig0dlBandwidth25, eNBcellConfig0dlBandwidth50, eNBcellConfig0dlBandwidth100,
+    		   eNBcellConfig0ulBandwidth25, eNBcellConfig0ulBandwidth50, eNBcellConfig0ulBandwidth100,
+    		   eNBcellConfig0dlPdschPower0, eNBcellConfig0dlPdschPower10, eNBcellConfig0dlPdschPower27,
+    		   eNBcellConfig0enable64QAM0, eNBcellConfig0enable64QAM1, eNBcellConfig0enable64QAM2,
+    		   eNBcellConfig0siConfigsfn1, eNBcellConfig0siConfigsfn2, eNBcellConfig0siConfigsfn3, eNBcellConfig0siConfigsfn4, eNBcellConfig0siConfigsfn5, eNBcellConfig0siConfigsfn6
+    		 );
     }
     
     private static List<DataSample> readData(boolean training) throws IOException {
@@ -189,9 +197,9 @@ public class Main {
         if (training) {
             final CellProcessor[] processors = new CellProcessor[] { 
                     new Optional(new ParseInt()),
+                    new Optional(new ParseDouble()),
+                    new Optional(new ParseDouble()),
                     new Optional(new ParseInt()),
-                    new Optional(new ParseDouble()),
-                    new Optional(new ParseDouble()),
                     new Optional(new ParseInt()),
                     new Optional(new ParseInt()),
                     new Optional(new ParseInt()),
@@ -203,14 +211,14 @@ public class Main {
         } else {
             final CellProcessor[] processors = new CellProcessor[] { 
                     new Optional(new ParseInt()),
-                    new Optional(new ParseInt()),
                     new Optional(new ParseDouble()),
                     new Optional(new ParseDouble()),
                     new Optional(new ParseInt()),
                     new Optional(new ParseInt()),
                     new Optional(new ParseInt()),
                     new Optional(new ParseInt()),
-                    new Optional(new ParseInt())
+                    new Optional(new ParseInt()),
+                    new Optional(new ParseInt()),
             };
             return processors;
         }
